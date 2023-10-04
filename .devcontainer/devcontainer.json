@@ -18,38 +18,24 @@
 	},
 	// forward ports for the app
 	"forwardPorts": [
-		30000,
-		30080,
-		31080,
-		32000
+		8080,
+		30100,
 	],
 	// add labels
 	"portsAttributes": {
-		"30000": {
-			"label": "Prometheus"
+		"8080": {
+			"label": "Nginx demo"
 		},
-		"30080": {
-			"label": "IMDb App"
-		},
-		"31080": {
-			"label": "Heartbeat"
-		},
-		"32000": {
-			"label": "Grafana"
+		"301000": {
+			"label": "ArgoCD"
 		}
 	},
 	// Install extensions
 	"customizations": {
 		"vscode": {
 			"extensions": [
-				"ms-dotnettools.csharp",
 				"ms-azuretools.vscode-docker",
-				"ms-kubernetes-tools.vscode-kubernetes-tools",
-				"davidanson.vscode-markdownlint",
-				"gruntfuggly.todo-tree",
-				"mutantdino.resourcemonitor",
-				"humao.rest-client",
-				"timonwong.shellcheck"
+				"ms-kubernetes-tools.vscode-kubernetes-tools"
 			],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "zsh",
@@ -58,14 +44,14 @@
 				"files.insertFinalNewline": true
 			}
 		}
-	}
+	},
 	//"waitFor": "postCreateCommand",
 	// Use 'onCreateCommand' to run commands as part of container creation.
 	//"onCreateCommand": "/bin/bash -c .devcontainer/on-create.sh",
 	// Use 'postCreateCommand' to run commands after the container is created.
 	//"postCreateCommand": "/bin/bash -c .devcontainer/post-create.sh",
 	// Use 'postStartCommand' to run commands after the container starts.
-	//"postStartCommand": "/bin/bash -c .devcontainer/post-start.sh"
+	"postStartCommand": "/bin/bash -c .devcontainer/post-start.sh"
 }
 // {
 // 	"name": "Kubernetes-in-Codespaces",
