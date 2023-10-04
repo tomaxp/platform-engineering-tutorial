@@ -12,31 +12,28 @@
 	"overrideCommand": false,
 	// some base images require a specific user name
 	"remoteUser": "vscode",
-	
+
 	"hostRequirements": {
 		"cpus": 2
 	},
 	// forward ports for the app
 	"forwardPorts": [
-		8080,
-		30100,
+		9090,
+		30100
 	],
 	// add labels
 	"portsAttributes": {
-		"8080": {
+		"9090": {
 			"label": "Nginx demo"
 		},
-		"301000": {
+		"30100": {
 			"label": "ArgoCD"
 		}
 	},
 	// Install extensions
 	"customizations": {
 		"vscode": {
-			"extensions": [
-				"ms-azuretools.vscode-docker",
-				"ms-kubernetes-tools.vscode-kubernetes-tools"
-			],
+			"extensions": [],
 			"settings": {
 				"terminal.integrated.defaultProfile.linux": "zsh",
 				"files.trimTrailingWhitespace": true,
@@ -87,11 +84,11 @@
 // 	},
 // 	// Install extensions
 // 	"customizations": {
-// 		"vscode": {	
+// 		"vscode": {
 // 			// Set container specific settings
 // 			"settings": {
 // 				"terminal.integrated.defaultProfile.linux": "zsh"
-// 			},			
+// 			},
 // 			"extensions": [
 // 				"ms-azuretools.vscode-docker",
 // 				"ms-kubernetes-tools.vscode-kubernetes-tools",

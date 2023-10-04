@@ -1,6 +1,8 @@
 #!/bin/bash
 
-echo "post-start start" >> ~/status
+USERNAME=vscode
+
+echo "post-start start" >> /home/$USERNAME/status
 
 echo "Creating kind cluster..."
 kind create cluster
@@ -13,4 +15,4 @@ kubectl apply -f .devcontainer/argocd-nodeport.yaml
 
 # this runs in background each time the container starts
 
-echo "post-start complete" >> ~/status
+echo "post-start complete" >> /home/$USERNAME/status
