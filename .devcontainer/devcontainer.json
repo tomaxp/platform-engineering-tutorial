@@ -48,7 +48,7 @@
 	// Use 'postCreateCommand' to run commands after the container is created.
 	//"postCreateCommand": "/bin/bash -c .devcontainer/post-create.sh",
 	// Use 'postStartCommand' to run commands after the container starts.
-	"postStartCommand": "/bin/bash -c .devcontainer/post-start.sh"
+	"postStartCommand": "chmod +x .devcontainer/post-start.sh && /bin/bash -c .devcontainer/post-start.sh"
 }
 // {
 // 	"name": "Kubernetes-in-Codespaces",
