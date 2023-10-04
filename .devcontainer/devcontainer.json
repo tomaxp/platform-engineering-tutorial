@@ -1,6 +1,7 @@
 {
 	"name": "Kubernetes-in-Codespaces",
-	"dockerFile": "Dockerfile",
+	//"dockerFile": "Dockerfile",
+	"image": "ubuntu:latest",
 
 	// do not change these if you want Docker in Docker support
 	"runArgs": ["--init", "--privileged", "--network=host"],
@@ -11,7 +12,7 @@
 	"remoteUser": "vscode",
 
 	"hostRequirements": {
-		"cpus": 4
+		"cpus": 2
 	},
 
 	// forward ports for the app
