@@ -1,7 +1,6 @@
 {
 	"name": "Kubernetes-in-Codespaces",
-	//"dockerFile": "Dockerfile",
-	"image": "ubuntu:latest",
+	"dockerFile": "Dockerfile",
 
 	// do not change these if you want Docker in Docker support
 	"runArgs": ["--init", "--privileged", "--network=host"],
