@@ -1,6 +1,7 @@
 {
 	"name": "Kubernetes-in-Codespaces",
-	"dockerFile": "Dockerfile",
+	//"dockerFile": "Dockerfile",
+	"image": "ghcr.io/cse-labs/k3d:latest",
 	// do not change these if you want Docker in Docker support
 	"runArgs": [
 		"--init",
