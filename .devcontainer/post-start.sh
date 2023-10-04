@@ -17,7 +17,5 @@ echo "Wait for ArgoCD to be ready..."
 kubectl wait --for=condition=available deployment/argocd-server -n argocd --timeout=300s
 
 kubectl -n argocd rollout status deploy/argocd-server --timeout=300s
-kubectl -n argocd port-forward svc/argocd-server 8080:80 &
 
 kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
-
