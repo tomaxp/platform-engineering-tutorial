@@ -8,11 +8,16 @@ echo "Creating kind cluster..."
 kind create cluster
 
 echo "Created kind cluster"
-echo "Applying nginx demo app"
-kubectl apply -f .devcontainer/nginxdemo.yml
-echo "Applying ArgoCD nodeport"
-kubectl apply -f .devcontainer/argocd-nodeport.yaml
 
-# this runs in background each time the container starts
+echo "Deploy ArgoCD"
+kubectl create namespace argocd
+kubectl apply -n argocd -f https://raw.githubusercontent.com/argoproj/argo-cd/stable/manifests/install.yaml
 
-echo "post-start complete" >> /home/$USERNAME/status
+echo "Wait for ArgoCD to be ready..."
+kubectl wait --for=condition=available deployment/argocd-server -n argocd --timeout=300s
+
+kubectl -n argocd rollout status deploy/argocd-server --timeout=300s
+kubectl -n argocd port-forward svc/argocd-server 8080:80 &
+
+kubectl -n argocd get secret argocd-initial-admin-secret -o jsonpath="{.data.password}" | base64 -d
+
