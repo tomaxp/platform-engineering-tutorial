@@ -19,15 +19,15 @@
 	},
 	// forward ports for the app
 	"forwardPorts": [
-		9090,
-		30100
+		80,
+		8080
 	],
 	// add labels
 	"portsAttributes": {
-		"9090": {
-			"label": "Nginx demo"
+		"80": {
+			"label": "http"
 		},
-		"30100": {
+		"8080": {
 			"label": "ArgoCD"
 		}
 	},
