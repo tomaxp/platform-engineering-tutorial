@@ -58,7 +58,7 @@
 				"files.insertFinalNewline": true
 			}
 		}
-	},
+	}
 	//"waitFor": "postCreateCommand",
 	// Use 'onCreateCommand' to run commands as part of container creation.
 	//"onCreateCommand": "/bin/bash -c .devcontainer/on-create.sh",
