@@ -1,109 +1,28 @@
+// For format details, see https://aka.ms/devcontainer.json. For config options, see the
+// README at: https://github.com/devcontainers/templates/tree/main/src/ubuntu
 {
-	"name": "Kubernetes-in-Codespaces",
-	"dockerFile": "Dockerfile",
-	// do not change these if you want Docker in Docker support
-	"runArgs": [
-		"--init",
-		"--privileged"
-	],
-	"mounts": [
-		"source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind"
-	],
-	"overrideCommand": false,
-	// some base images require a specific user name
-	"remoteUser": "vscode",
+	"name": "Ubuntu",
+	// Or use a Dockerfile or Docker Compose file. More info: https://containers.dev/guide/dockerfile
+	"image": "mcr.microsoft.com/devcontainers/base:jammy",
+	"features": {
+		"ghcr.io/devcontainers/features/docker-in-docker:2": {},
+		"ghcr.io/rio/features/k3d:1": {}
+	},
 
-	"hostRequirements": {
-		"cpus": 2
-	},
-	// forward ports for the app
-	"forwardPorts": [
-		9090,
-		30100
-	],
-	// add labels
-	"portsAttributes": {
-		"9090": {
-			"label": "Nginx demo"
-		},
-		"30100": {
-			"label": "ArgoCD"
-		}
-	},
-	// Install extensions
-	"customizations": {
-		"vscode": {
-			"extensions": [],
-			"settings": {
-				"terminal.integrated.defaultProfile.linux": "zsh",
-				"files.trimTrailingWhitespace": true,
-				"files.trimFinalNewlines": true,
-				"files.insertFinalNewline": true
-			}
-		}
-	},
-	//"waitFor": "postCreateCommand",
-	// Use 'onCreateCommand' to run commands as part of container creation.
-	//"onCreateCommand": "/bin/bash -c .devcontainer/on-create.sh",
+	// Features to add to the dev container. More info: https://containers.dev/features.
+	// "features": {},
+
+	// Use 'forwardPorts' to make a list of ports inside the container available locally.
+	// "forwardPorts": [],
+
+	"onCreateCommand": "/bin/bash -c .devcontainer/on-create.sh"
+
 	// Use 'postCreateCommand' to run commands after the container is created.
-	//"postCreateCommand": "/bin/bash -c .devcontainer/post-create.sh",
-	// Use 'postStartCommand' to run commands after the container starts.
-	"postStartCommand": "/bin/bash -c .devcontainer/post-start.sh"
+	// "postCreateCommand": "uname -a",
+
+	// Configure tool-specific properties.
+	// "customizations": {},
+
+	// Uncomment to connect as root instead. More info: https://aka.ms/dev-containers-non-root.
+	// "remoteUser": "root"
 }
-// {
-// 	"name": "Kubernetes-in-Codespaces",
-// 	"dockerFile": "Dockerfile",
-// 	// do not change these if you want Docker in Docker support
-// 	"runArgs": ["--init", "--privileged", "--network=host"],
-// 	"mounts": [ "source=/var/run/docker.sock,target=/var/run/docker-host.sock,type=bind" ],
-// 	"overrideCommand": false,
-// 	// some base images require a specific user name
-// 	"remoteUser": "vscode",
-// 	"hostRequirements": {
-// 		"cpus": 2
-// 	},
-// 	// forward ports for the app
-// 	"forwardPorts": [
-// 		80,
-// 		443,
-// 		30100,
-// 		30101,
-// 		30102,
-// 		30103,
-// 		30104
-// 	],
-// 	// add labels
-// 	"portsAttributes": {
-// 		"80": { "label": "NginX Ingress HTTP" },
-// 		"443": { "label": "NginX Ingress HTTPS" },
-// 		"30100": { "label": "ArgoCD HTTP" },
-// 		"30101": { "label": "Grafana" },
-// 		"30102": { "label": "Prometheus" },
-// 		"30103": { "label": "DemoApp" },
-// 		"30104": { "label": "Jaeger" }
-// 	},
-// 	// Install extensions
-// 	"customizations": {
-// 		"vscode": {
-// 			// Set container specific settings
-// 			"settings": {
-// 				"terminal.integrated.defaultProfile.linux": "zsh"
-// 			},
-// 			"extensions": [
-// 				"ms-azuretools.vscode-docker",
-// 				"ms-kubernetes-tools.vscode-kubernetes-tools",
-// 				"davidanson.vscode-markdownlint",
-// 				"gruntfuggly.todo-tree",
-// 				"mutantdino.resourcemonitor",
-// 				"humao.rest-client",
-// 				"ms-vscode.makefile-tools"
-// 			]
-// 		}
-// 	},
-// 	// Use 'onCreateCommand' to run commands as part of container creation.
-// 	"onCreateCommand": "/bin/bash -c .devcontainer/on-create.sh",
-// 	// Use 'postCreateCommand' to run commands after the container is created.
-// 	"postCreateCommand": "/bin/bash -c .devcontainer/post-create.sh",
-// 	// Use 'postStartCommand' to run commands after the container starts.
-// 	"postStartCommand": "/bin/bash -c .devcontainer/post-start.sh"
-// }
