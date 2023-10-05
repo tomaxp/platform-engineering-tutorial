@@ -1,8 +1,8 @@
-# Test System
+# Platform Engineering
 
 Click "Use this template" to create a new repo in your account.
 
-In your repository, click "Code" then "Codespaces" then "New codespace from XXXXX".
+In your repository, click "Code" then "Codespaces" then "Create codespace on main".
 
 A new browser tab will open and the system will begin installing.
 
