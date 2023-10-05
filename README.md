@@ -1,6 +1,6 @@
 # Test System
 
-Click "Use Template" to create a new repo in your account.
+Click "Use this template" to create a new repo in your account.
 
 In your repository, click "Code" then "Codespaces" then "New codespace from XXXXX".
 
